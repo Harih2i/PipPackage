@@ -1,0 +1,75 @@
+1. Directory Structure
+
+mypackage/
+├── mypackage/
+│   ├── __init__.py
+│   ├── module1.py
+│   ├── module2.py
+├── setup.py
+└── README.md
+
+2. Verify setup.py Script
+
+from setuptools import setup, find_packages
+
+setup(
+    name='mypackage',
+    version='0.1',
+    packages=find_packages(),
+    install_requires=[
+        # List your dependencies here
+    ],
+    author='Your Name',
+    author_email='your.email@example.com',
+    description='A simple example package',
+    url='https://github.com/yourusername/mypackage',
+)
+
+3. Write the __init__.py File
+
+touch __init__.py
+
+
+4. mypackage/module1.py and mypackage/module2.py
+
+	# mypackage/module1.py
+
+	def function1():
+	    return "Hello from module1!"
+
+	# mypackage/module2.py
+
+	def function2():
+	    return "Hello from module2!"
+
+5. Create and Activate a Virtual Environment
+
+virtualenv venv
+source env/bin/activate
+
+6. Build Package
+
+cd /path/to/mypackage
+
+# Build the package
+python setup.py sdist bdist_wheel
+
+7. Install the package
+pip install .
+
+8. Verify Installation
+
+pip list | grep mypackage
+
+
+9. Test Importing the Package
+
+- open file: vim  test_import.py
+
+
+from mypackage.module1 import function1
+from mypackage.module2 import function2
+
+print(function1())
+print(function2())
+
